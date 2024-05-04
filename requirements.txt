@@ -21,3 +21,4 @@ certifi>=2017.4.17
 opencv-python
 Werkzeug
 google-generativeai
+Flask
