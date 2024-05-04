@@ -7,7 +7,6 @@ from scipy.signal import find_peaks
 import speech_recognition as sr
 from PIL import Image
 import numpy as np
-import torch
 import cv2
 import os
 import serverFunctions as SF
