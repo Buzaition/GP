@@ -4,17 +4,17 @@
       "src": ".", 
       "use": "@vercel/python",
       "config": {
-        "pythonVersion": "3.12",  
+        "pythonVersion": "3.12",
         "env": {
-          "FLASK_ENV": "production"
+          "FLASK_ENV": "production" 
         }
       }
     }
   ],
   "routes": [
     {
-      "src": "/(.*)", 
-      "dest": "/API.app" 
+      "src": "/(.*)",
+      "dest": "/API.app"
     }
   ]
 }
