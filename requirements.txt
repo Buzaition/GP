@@ -1,0 +1,13 @@
+Flask==3.0.0
+opencv-python-headless
+Pillow
+threadpoolctl
+SpeechRecognition==3.10.3
+scipy==1.13.0
+google-generativeai==0.5.2
+moviepy==1.0.3
+werkzeug==3.0.1
+concurrent.futures
+transformers==4.40.1  
+torch== 2.3.0+cu118
+gunicorn
