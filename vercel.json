@@ -1,0 +1,20 @@
+{
+  "builds": [
+    {
+      "src": ".",  # Replace with the directory containing your application files if needed
+      "use": "@vercel/python",
+      "config": {
+        "pythonVersion": "3.12",  # Match your environment specification
+        "env": {
+          "FLASK_ENV": "production"  # Set environment variable
+        }
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",  # Matches all routes
+      "dest": "/API.app"  # Forward requests to your Gunicorn app
+    }
+  ]
+}
