@@ -4,7 +4,6 @@ import math
 from PIL import Image
 from threading import Thread
 import speech_recognition as sr
-from scipy.signal import find_peaks
 import google.generativeai as genai
 from moviepy.editor import VideoFileClip
 from werkzeug.utils import secure_filename
