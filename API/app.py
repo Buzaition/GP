@@ -1,4 +1,4 @@
-from back_end import * 
+from .back_end import *
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'  
