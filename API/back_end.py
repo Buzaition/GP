@@ -12,9 +12,10 @@ from concurrent.futures import ThreadPoolExecutor
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from flask import Flask, request, jsonify,render_template
 from transformers import BlipProcessor, BlipForConditionalGeneration
+API = os.environ.get('G_API_KEY')
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large")
-genai.configure(api_key='AIzaSyDgxGvBKD-XNYN6uqL2DMJ-4CAURSw2up8')
+genai.configure(api_key=API)
 Gemini = genai.GenerativeModel(model_name= 'gemini-pro')
 vidPath,audio_output,visual_output,summarization="","","",""
 
