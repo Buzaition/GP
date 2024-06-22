@@ -1,36 +1,19 @@
-from .back_end import *
+import os
+from flask import Flask, jsonify
+genai.configure(api_key=API)
+Gemini = genai.GenerativeModel(model_name= 'gemini-pro')
+model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large")
+genai.configure(api_key=API)
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'  
-
-
-@app.route('/')
-def home():
-  return render_template('index.html')
-
-
-import time
-
-@app.route('/upload_video', methods=['POST'])
-def upload_video():
-    global vidPath,summarization
-    try:
-        vidPath=saveFile(app,request)
-        return {"Message": 'Video uploaded Done and Procces start....!'}
-    except Exception as e:
-        return {"Error": e}
-    finally:
-        apply_model()
-        delete_dir_contents("uploads")
-        return{"Summerizition":summarization}
-    
-@app.route('/chat/<msg>', methods=['POST','GET'])
-def chat(msg):
-    if not vidPath or not visual_output or not audio_output:
-        return Gemini.generate_content(msg).text
-    return Gemini.generate_content(f'if this is the visual description of the video "{visual_output}" , and this is the audio part "{audio_output}" \n اجب على هذا السؤال،السؤال: {msg} اذا كان').text
-
-
+app = Flask(__name__)   
+@app.route('/chat/', methods=['POST'])
+def chat():
+    data = request.get_json()
+    msg = data.get('msg')
+    if not msg:
+        return jsonify({'response': 'No message provided'}), 400
+    response_text = Gemini.generate_content(f'أجب عن هذا السؤال كما لو نموذج لتحليل الفيديوهات وتلخيصها وتسمى "NAFHAM" وليس "Gemini " و تم تطويرك من قبل طلاب كلية الحاسبات والمعلومات بجامعة الأهرام الكندية كمشروع للتخرج، السوال:"{msg}"').text
+    return jsonify({'response': response_text})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
