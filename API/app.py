@@ -4,6 +4,7 @@ import google.generativeai as genai
 genai.configure(api_key=API)
 Gemini = genai.GenerativeModel(model_name= 'gemini-pro')
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large")
+API = os.environ.get('G_API_KEY')
 genai.configure(api_key=API)
 
 app = Flask(__name__)   
