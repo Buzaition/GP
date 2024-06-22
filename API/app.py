@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask,request, jsonify
 import google.generativeai as genai
 
 Gemini = genai.GenerativeModel(model_name= 'gemini-pro')
