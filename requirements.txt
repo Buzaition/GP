@@ -1,11 +1,4 @@
 Flask
-opencv-python-headless
-Pillow
-threadpoolctl
-SpeechRecognition==3.10.3
 google-generativeai
-moviepy
 werkzeug
-torch
-transformers==4.40.1  
 gunicorn
