@@ -4,7 +4,7 @@ import google.generativeai as genai
 
 Gemini = genai.GenerativeModel(model_name= 'gemini-pro')
 API = os.environ.get('G_API_KEY')
-genai.configure(api_key=API)
+genai.configure(api_key="AIzaSyBUX5OP1JXj1-YwAkMSBlPdAt-LVGWW5Sg")
 
 app = Flask(__name__)   
 @app.route('/chat/', methods=['POST'])
